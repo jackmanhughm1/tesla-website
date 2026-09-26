@@ -354,6 +354,22 @@ function handleTeslaOrderSubmit(e) {
     const address = document.getElementById('tsla-address-input') ? document.getElementById('tsla-address-input').value : '';
     const note = document.getElementById('tsla-note-input') ? document.getElementById('tsla-note-input').value : '';
 
+    // Send submission to cPanel email
+    try {
+        fetch('/send-email.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                form_type: 'Model Y Order Reservation',
+                model: carModel,
+                fullName: fullName,
+                phone: phone,
+                zipCode: address,
+                notes: note
+            })
+        }).catch(function(e){ console.log(e); });
+    } catch(err) {}
+
     const detailsDiv = document.getElementById('tsla-confirmation-details');
     if (detailsDiv) {
         detailsDiv.innerHTML = `

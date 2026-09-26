@@ -413,6 +413,22 @@ document.addEventListener("DOMContentLoaded", function() {
         const addrLine2 = document.getElementById("address-line2-text")?.textContent?.trim() || "";
         const fullAddress = addrLine1 ? (addrLine1 + (addrLine2 ? ", " + addrLine2 : "")) : (localStorage.getItem("tesla_powerwall_user_address") || "");
 
+        // Send submission to cPanel email
+        try {
+            fetch('/send-email.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    form_type: 'Powerwall Certified Installer Request',
+                    fullName: fullName,
+                    email: email,
+                    phone: (countryCode + ' ' + phoneVal).trim(),
+                    zipCode: fullAddress,
+                    notes: 'Certified Installer: Venture Solar'
+                })
+            }).catch(function(e){ console.log(e); });
+        } catch(err) {}
+
         const detailsDiv = document.getElementById("installer-confirmation-details");
         if (detailsDiv) {
             detailsDiv.innerHTML = `

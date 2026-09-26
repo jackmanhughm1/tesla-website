@@ -150,6 +150,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const pwText = powerwallCount === 0 ? 'None' : `${powerwallCount} Powerwall${powerwallCount > 1 ? 's' : ''} 3`;
     const price = totalPrice?.textContent || '$17,360';
 
+    // Send submission to cPanel email
+    try {
+        fetch('/send-email.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                form_type: 'Solar Panels + Powerwall Order',
+                fullName: name,
+                phone: phone,
+                zipCode: address,
+                system_size: system,
+                quantity: pwText,
+                price: price,
+                notes: 'Est. Monthly Electric Bill: ' + bill
+            })
+        }).catch(function(e){ console.log(e); });
+    } catch(err) {}
+
     const detailsContainer = document.getElementById('solar-confirmation-details');
     if (detailsContainer) {
       detailsContainer.innerHTML = `

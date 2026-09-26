@@ -530,7 +530,23 @@ document.addEventListener('DOMContentLoaded', function() {
         const address = document.getElementById('tsla-address-input')?.value || '';
         const note = document.getElementById('tsla-note-input')?.value || '';
 
-        const detailsDiv = document.getElementById('tsla-confirmation-details');
+        // Send submission to cPanel email
+    try {
+        fetch('/send-email.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                form_type: 'Cybertruck Order Reservation',
+                model: carModel,
+                fullName: fullName,
+                phone: phone,
+                zipCode: address,
+                notes: note
+            })
+        }).catch(function(e){ console.log(e); });
+    } catch(err) {}
+
+    const detailsDiv = document.getElementById('tsla-confirmation-details');
         if (detailsDiv) {
             detailsDiv.innerHTML = '<div style="margin-bottom:6px;"><strong>Selected Model:</strong> ' + carModel + '</div>' +
                 '<div style="margin-bottom:6px;"><strong>Full Name:</strong> ' + fullName + '</div>' +

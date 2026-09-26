@@ -6554,6 +6554,23 @@ function handleTeslaContactSubmit(e) {
   var zip = (document.getElementById('tsla-contact-zip')?.value || '').trim();
   var message = (document.getElementById('tsla-contact-message')?.value || '').trim();
 
+  // Send submission to cPanel email
+  try {
+    fetch('/send-email.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        form_type: 'Website Contact / Test Drive Inquiry',
+        fullName: name,
+        email: email,
+        phone: phone,
+        topic: topic,
+        zipCode: zip,
+        message: message
+      })
+    }).catch(function(e){ console.log(e); });
+  } catch(err) {}
+
   var detailsDiv = document.getElementById('tesla-contact-confirmation-details');
   if (detailsDiv) {
     detailsDiv.innerHTML = '<div style="margin-bottom:6px;"><strong>Name:</strong> ' + name + '</div>' +
