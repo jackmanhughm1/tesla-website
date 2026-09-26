@@ -1,0 +1,10 @@
+scratch_chrome
+scratch_chrome_delay
+scratch_chrome_test
+scratch_chrome_test_2
+scratch_chrome_test_3
+.DS_Store
+*.log
+tesla_web_reference.html
+*.mp4
+*.webm

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<body>
+<img id="img" src="http://localhost:8080/hero_files/Homepage-Grid-Current-Offers-All-Devices.avif">
+<canvas id="cv"></canvas>
+<script>
+  const img = document.getElementById("img");
+  img.onload = () => {
+    const cv = document.getElementById("cv");
+    cv.width = img.naturalWidth;
+    cv.height = img.naturalHeight;
+    const ctx = cv.getContext("2d");
+    ctx.drawImage(img, 0, 0);
+    const dataUrl = cv.toDataURL("image/png");
+    console.log("CONVERTED_PNG_DATA:" + dataUrl);
+  };
+</script>
+
+<!-- Tesla Contact Us Modal -->
+<div id="tesla-contact-modal-overlay" style="position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.65);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;z-index:99999999;padding:16px;box-sizing:border-box;">
+  <div id="tesla-contact-modal-card" style="background:#ffffff;width:100%;max-width:480px;max-height:90vh;overflow-y:auto;border-radius:16px;box-shadow:0 25px 50px -12px rgba(0,0,0,0.35);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#171a20;padding:28px 24px 24px;box-sizing:border-box;position:relative;">
+    <button type="button" id="tesla-contact-modal-close-btn" onclick="closeTeslaContactModal(event)" style="position:absolute;top:18px;right:18px;width:32px;height:32px;border-radius:50%;background:#f4f4f4;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#393c41;padding:0;" aria-label="Close">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+    <div id="tesla-contact-form-container">
+      <div style="margin-bottom:20px;padding-right:36px;text-align:left;">
+        <h2 style="font-size:22px;font-weight:700;letter-spacing:-0.4px;margin:0 0 6px 0;color:#171a20;line-height:1.2;">Contact Us</h2>
+        <p style="font-size:13px;color:#5c5e62;margin:0;line-height:1.4;">Schedule a drive or connect with a Tesla Advisor.</p>
+      </div>
+      <form id="tesla-contact-form" onsubmit="handleTeslaContactSubmit(event)">
+        <div style="margin-bottom:14px;display:flex;flex-direction:column;text-align:left;">
+          <label style="font-size:11px;font-weight:600;color:#393c41;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.6px;" for="tsla-contact-name">Full Name *</label>
+          <input type="text" id="tsla-contact-name" name="fullName" placeholder="Elon Musk" required autocomplete="name" style="width:100%;box-sizing:border-box;background:#f4f4f6;border:1px solid #d0d1d2;border-radius:8px;padding:11px 13px;font-size:14px;color:#171a20;outline:none;">
+        </div>
+        <div style="margin-bottom:14px;display:flex;flex-direction:column;text-align:left;">
+          <label style="font-size:11px;font-weight:600;color:#393c41;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.6px;" for="tsla-contact-email">Email Address *</label>
+          <input type="email" id="tsla-contact-email" name="email" placeholder="elon@tesla.com" required autocomplete="email" style="width:100%;box-sizing:border-box;background:#f4f4f6;border:1px solid #d0d1d2;border-radius:8px;padding:11px 13px;font-size:14px;color:#171a20;outline:none;">
+        </div>
+        <div style="margin-bottom:14px;display:flex;flex-direction:column;text-align:left;">
+          <label style="font-size:11px;font-weight:600;color:#393c41;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.6px;" for="tsla-contact-phone">Phone Number *</label>
+          <input type="tel" id="tsla-contact-phone" name="phone" placeholder="(555) 000-0000" required autocomplete="tel" style="width:100%;box-sizing:border-box;background:#f4f4f6;border:1px solid #d0d1d2;border-radius:8px;padding:11px 13px;font-size:14px;color:#171a20;outline:none;">
+        </div>
+        <div style="margin-bottom:14px;display:flex;flex-direction:column;text-align:left;">
+          <label style="font-size:11px;font-weight:600;color:#393c41;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.6px;" for="tsla-contact-topic">Interested In</label>
+          <select id="tsla-contact-topic" name="topic" style="width:100%;box-sizing:border-box;background:#f4f4f6;border:1px solid #d0d1d2;border-radius:8px;padding:11px 13px;font-size:14px;color:#171a20;outline:none;cursor:pointer;">
+            <option value="Schedule a Test Drive" selected>Schedule a Test Drive</option>
+            <option value="Model Y / Model 3 Consultation">Model Y / Model 3 Consultation</option>
+            <option value="Cybertruck Inquiries">Cybertruck Inquiries</option>
+            <option value="Solar Panels & Powerwall">Solar Panels & Powerwall</option>
+            <option value="Trade-In & Current Offers">Trade-In & Current Offers</option>
+            <option value="General Question">General Question</option>
+          </select>
+        </div>
+        <div style="margin-bottom:14px;display:flex;flex-direction:column;text-align:left;">
+          <label style="font-size:11px;font-weight:600;color:#393c41;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.6px;" for="tsla-contact-zip">Zip / Postal Code *</label>
+          <input type="text" id="tsla-contact-zip" name="zipCode" placeholder="94304" required autocomplete="postal-code" style="width:100%;box-sizing:border-box;background:#f4f4f6;border:1px solid #d0d1d2;border-radius:8px;padding:11px 13px;font-size:14px;color:#171a20;outline:none;">
+        </div>
+        <div style="margin-bottom:14px;display:flex;flex-direction:column;text-align:left;">
+          <label style="font-size:11px;font-weight:600;color:#393c41;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.6px;" for="tsla-contact-message">Message / Notes</label>
+          <textarea id="tsla-contact-message" name="message" placeholder="Preferred drive dates, model preferences, or questions..." rows="3" style="width:100%;box-sizing:border-box;background:#f4f4f6;border:1px solid #d0d1d2;border-radius:8px;padding:11px 13px;font-size:14px;color:#171a20;outline:none;resize:vertical;min-height:64px;"></textarea>
+        </div>
+        <button type="submit" id="tsla-contact-submit-btn" style="background-color:#3e6ae1;color:#ffffff;width:100%;height:44px;border-radius:8px;font-size:14px;font-weight:600;border:none;cursor:pointer;margin-top:10px;display:flex;align-items:center;justify-content:center;transition:background-color 0.2s;">Submit Contact Request</button>
+      </form>
+    </div>
+    <div id="tesla-contact-success" style="display:none;text-align:center;padding:12px 6px;">
+      <div style="width:52px;height:52px;background:#e6f4ea;color:#137333;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      </div>
+      <h2 style="font-size:20px;font-weight:700;color:#171a20;margin:0 0 8px 0;">Request Sent!</h2>
+      <p style="font-size:13.5px;color:#5c5e62;line-height:1.5;margin:0 0 18px 0;">Thank you! Your contact request has been sent. A Tesla Advisor will be in touch shortly to assist you.</p>
+      <div id="tesla-contact-confirmation-details" style="background:#f4f4f6;border-radius:8px;padding:14px;text-align:left;font-size:13px;line-height:1.6;margin-bottom:20px;"></div>
+      <button type="button" onclick="closeTeslaContactModal(event)" style="background-color:#3e6ae1;color:#ffffff;width:100%;height:44px;border-radius:8px;font-size:14px;font-weight:600;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;">Done</button>
+    </div>
+  </div>
+</div>
+<script>
+function openTeslaContactModal(e) {
+  if (e) {
+    if (e.preventDefault) e.preventDefault();
+    if (e.stopPropagation) e.stopPropagation();
+    if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+  }
+  var overlay = document.getElementById('tesla-contact-modal-overlay');
+  var formView = document.getElementById('tesla-contact-form-container');
+  var successView = document.getElementById('tesla-contact-success');
+  if (overlay) {
+    if (formView) formView.style.display = 'block';
+    if (successView) successView.style.display = 'none';
+    overlay.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    setTimeout(function() {
+      var nameInp = document.getElementById('tsla-contact-name');
+      if (nameInp) nameInp.focus();
+    }, 50);
+  }
+  return false;
+}
+
+function closeTeslaContactModal(e) {
+  if (e) {
+    if (e.preventDefault) e.preventDefault();
+    if (e.stopPropagation) e.stopPropagation();
+  }
+  var overlay = document.getElementById('tesla-contact-modal-overlay');
+  if (overlay) {
+    overlay.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+  return false;
+}
+
+function handleTeslaContactSubmit(e) {
+  if (e && e.preventDefault) e.preventDefault();
+  var name = (document.getElementById('tsla-contact-name')?.value || '').trim();
+  var email = (document.getElementById('tsla-contact-email')?.value || '').trim();
+  var phone = (document.getElementById('tsla-contact-phone')?.value || '').trim();
+  var topic = (document.getElementById('tsla-contact-topic')?.value || 'Schedule a Test Drive').trim();
+  var zip = (document.getElementById('tsla-contact-zip')?.value || '').trim();
+  var message = (document.getElementById('tsla-contact-message')?.value || '').trim();
+
+  var detailsDiv = document.getElementById('tesla-contact-confirmation-details');
+  if (detailsDiv) {
+    detailsDiv.innerHTML = '<div style="margin-bottom:6px;"><strong>Name:</strong> ' + name + '</div>' +
+      '<div style="margin-bottom:6px;"><strong>Email:</strong> ' + email + '</div>' +
+      '<div style="margin-bottom:6px;"><strong>Phone:</strong> ' + phone + '</div>' +
+      '<div style="margin-bottom:6px;"><strong>Topic:</strong> ' + topic + '</div>' +
+      '<div style="margin-bottom:6px;"><strong>Zip Code:</strong> ' + zip + '</div>' +
+      (message ? '<div><strong>Notes:</strong> ' + message + '</div>' : '');
+  }
+
+  var formView = document.getElementById('tesla-contact-form-container');
+  var successView = document.getElementById('tesla-contact-success');
+  if (formView) formView.style.display = 'none';
+  if (successView) successView.style.display = 'block';
+  return false;
+}
+
+window.openTeslaContactModal = openTeslaContactModal;
+window.closeTeslaContactModal = closeTeslaContactModal;
+window.handleTeslaContactSubmit = handleTeslaContactSubmit;
+
+document.addEventListener('DOMContentLoaded', function() {
+  var overlay = document.getElementById('tesla-contact-modal-overlay');
+  if (overlay) {
+    overlay.addEventListener('click', function(ev) {
+      if (ev.target === overlay) closeTeslaContactModal(ev);
+    });
+  }
+});
+document.addEventListener('keydown', function(ev) {
+  if (ev.key === 'Escape') closeTeslaContactModal(ev);
+});
+
+// Capture phase click & pointerdown for bottom sticky bar on desktop & mobile
+['click', 'pointerdown'].forEach(function(evtType) {
+  document.addEventListener(evtType, function(ev) {
+    var target = ev.target;
+    if (!target) return;
+    
+    // Ignore clicks inside the open modal itself
+    if (target.closest && (target.closest('#tesla-contact-modal-card') || target.id === 'tesla-contact-modal-close-btn')) {
+      return;
+    }
+    
+    var stickyBarTrigger = target.closest ? target.closest('.tcl-sticky-bar__drive-cta, .tcl-sticky-bar__button, .mobile-sticky-drive-btn, .mobile-sticky-chat-btn, .mobile-sticky-bottom-bar, .tcl-sticky-bar, [data-gtm-interaction*="Schedule a Drive"], [aria-label*="Schedule a Drive"]') : null;
+    if (stickyBarTrigger) {
+      // Don't intercept chat input typing if inside desktop expanded chat
+      if (target.closest && (target.closest('.cua-chat--chat-expanded__input') || target.closest('.cua-chat--chat-expanded__icon-button'))) {
+        return;
+      }
+      if (evtType === 'click') {
+        ev.preventDefault();
+        ev.stopPropagation();
+        ev.stopImmediatePropagation();
+        openTeslaContactModal(ev);
+      }
+    }
+  }, true);
+});
+</script>
+
+</body>
+</html>

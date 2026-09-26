@@ -1,0 +1,1 @@
+/* Dynamic loader disabled for static rendering */

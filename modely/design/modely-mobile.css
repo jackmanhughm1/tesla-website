@@ -1,0 +1,962 @@
+/* Tesla Model Y Mobile Responsive Stylesheet
+   STRICTLY SCOPED TO VIEWPORTS <= 767px
+   Desktop (>= 768px) is 100% UNTOUCHED
+*/
+
+@media screen and (min-width: 768px) {
+  .promo-banner-mobile,
+  .mobile-delivery-subtext,
+  .mobile-design-bottom-bar,
+  .mobile-design-header {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  /* 1. Page Shell Layout */
+  html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+  }
+
+  #root, .tds-shell, .cf-shell-content {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  main#main-content {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    padding-bottom: 90px !important; /* Space for sticky bottom bar */
+  }
+
+  .cf-layout, .cf-layout--desk {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+
+  /* 2. Top Promo Banner & Header - Fixed at Top */
+  .site-header-container {
+    display: flex !important;
+    flex-direction: column !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    z-index: 1002 !important;
+    background: #ffffff !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .promo-banner-mobile {
+    display: block !important;
+    background-color: #ebd19a !important;
+    color: #171a20 !important;
+    text-align: center !important;
+    padding: 10px 16px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .promo-banner-mobile a {
+    color: #171a20 !important;
+    text-decoration: underline !important;
+    margin-left: 4px !important;
+  }
+
+  /* 3. Site Header Navbar */
+  .tds-global-menu, #tds-site-header {
+    height: 52px !important;
+    padding: 0 16px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    background: #fff !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+  }
+
+  .tds-site-logo-icon {
+    width: 110px !important;
+    height: 16px !important;
+  }
+
+  .tds-site-logo svg,
+  .tds-site-logo-link svg,
+  .tds-site-logo-icon,
+  .tds-icon-logo-wordmark,
+  .tds-site-logo path,
+  .tds-site-logo-link path,
+  .tds-site-logo-icon path,
+  .tds-icon-logo-wordmark path,
+  header.tds-site-header .tds-site-logo svg path,
+  #tds-site-header .tds-site-logo svg path,
+  .dx-mega-menu .tds-site-logo svg path {
+    fill: #171a20 !important;
+    color: #171a20 !important;
+    stroke: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  /* Hide header center links on mobile */
+  .tds-site-nav-items:not(.tds--product-name) {
+    display: none !important;
+  }
+
+  /* 4. Car Gallery Canvas Area - Fixed below Header */
+  .cf-asset-wrapper {
+    order: 1 !important;
+    width: 100% !important;
+    height: 225px !important;
+    position: fixed !important;
+    top: 88px !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1001 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    box-sizing: border-box !important;
+  }
+
+  .gallery-outer-wrapper, .gallery {
+    width: 100% !important;
+    height: 100% !important;
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+  }
+
+  .gallery_asset--section {
+    position: relative !important;
+    width: 100% !important;
+    height: 190px !important;
+    display: none !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+  }
+
+  .gallery_asset--section.is-active {
+    display: flex !important;
+  }
+
+  .gallery_asset--section svg, .group--main-content--asset {
+    width: 100% !important;
+    height: 190px !important;
+    max-height: 190px !important;
+    transform: none !important;
+    display: block !important;
+  }
+
+  .gallery_asset--section svg image {
+    width: 100% !important;
+    height: 100% !important;
+    preserveAspectRatio: xMidYMid meet !important;
+  }
+
+  /* Hide desktop gallery overlay popovers on mobile */
+  .gallery-overlay {
+    display: none !important;
+  }
+
+  /* Chat bubble icon positioning */
+  .chat-container {
+    position: absolute !important;
+    top: 12px !important;
+    left: 16px !important;
+    z-index: 10 !important;
+  }
+
+  .cua-chat--chat-icon {
+    background: rgba(23, 26, 32, 0.75) !important;
+    color: #fff !important;
+    border-radius: 8px !important;
+    width: 38px !important;
+    height: 38px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* Pagination dots and arrows */
+  .gallery-pagination {
+    position: relative !important;
+    bottom: 0 !important;
+    left: auto !important;
+    transform: none !important;
+    margin: 4px 0 0 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 12px !important;
+  }
+
+  .gallery-pagination--dots {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+
+  .gallery-pagination--dot {
+    width: 8px !important;
+    height: 8px !important;
+    border-radius: 50% !important;
+    background: #d0d1d2 !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+
+  .gallery-pagination--dot.is-active, .gallery-pagination--dot[aria-current="true"] {
+    background: #171a20 !important;
+    width: 10px !important;
+    height: 10px !important;
+  }
+
+  .gallery-pagination--arrow {
+    background: transparent !important;
+    border: none !important;
+    color: #171a20 !important;
+    padding: 4px !important;
+  }
+
+  /* 5. Title & Delivery Location Subtext */
+  .group-section.option-widget--container {
+    order: 2 !important;
+    width: 100% !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    padding-top: 365px !important;
+    margin-top: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .group-container,
+  .group-section--container {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+
+  h1.text-loader--content {
+    font-size: 28px !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+    margin: 8px 0 4px 0 !important;
+    padding: 0 !important;
+    color: #171a20 !important;
+  }
+
+  .notification-banner {
+    display: none !important;
+  }
+
+  .mobile-delivery-subtext {
+    display: block !important;
+    text-align: center !important;
+    font-size: 14px !important;
+    color: #5c5e62 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .mobile-delivery-subtext a {
+    color: #171a20 !important;
+    text-decoration: underline !important;
+    font-weight: 500 !important;
+  }
+
+  /* 6. Payment Method Tabs (Cash | Lease | Finance) - Fixed below Car Gallery */
+  .FinanceToggle, #financeTabs-tablist, [data-id="finance-tabs"] {
+    width: 100% !important;
+    background: #ffffff !important;
+    border-bottom: 1px solid #e2e2e2 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    position: fixed !important;
+    top: 313px !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1000 !important;
+    flex-shrink: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .tds--vertical_padding {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .tds-tab-list--underline--inner,
+  .tds-tab-list {
+    display: flex !important;
+    width: 100% !important;
+    justify-content: space-around !important;
+    border: none !important;
+    background: #ffffff !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .tds-tab {
+    flex: 1 !important;
+    text-align: center !important;
+    padding: 14px 0 !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 2px solid transparent !important;
+    border-radius: 0 !important;
+    color: #5c5e62 !important;
+    cursor: pointer !important;
+    box-sizing: border-box !important;
+    transition: color 0.2s ease, border-color 0.2s ease !important;
+  }
+
+  .tds-tab.tds-tab--active, .tds-tab.is-active, .tds-tab[aria-selected="true"] {
+    font-weight: 600 !important;
+    color: #171a20 !important;
+    border: none !important;
+    border-bottom: 2px solid #171a20 !important;
+    background: transparent !important;
+  }
+
+  /* 7. Specs Row (3 Columns) */
+  .specs-block ol.tds-list {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+    width: 100% !important;
+    background: #f4f4f4 !important;
+    padding: 16px 8px !important;
+    border-radius: 8px !important;
+    margin: 16px 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .specs-block li.tds-list-item {
+    flex: 1 !important;
+    text-align: center !important;
+  }
+
+  .specs-block .tds-text--h4 {
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: #171a20 !important;
+  }
+
+  .specs-block span[data-id*="-label"] {
+    font-size: 12px !important;
+    color: #5c5e62 !important;
+    display: block !important;
+    margin-top: 2px !important;
+  }
+
+  /* 8. Option Container & Trim Selection Cards */
+  .group--options_block--container {
+    width: 100% !important;
+    margin-bottom: 12px !important;
+  }
+
+  .options-group--wrapper {
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 16px !important;
+    border: 1px solid #d0d1d2 !important;
+    border-radius: 8px !important;
+    background: #fff !important;
+    box-sizing: border-box !important;
+  }
+
+  .options-group--wrapper.is-selected, input:checked + .options-group--wrapper {
+    border: 2px solid #171a20 !important;
+  }
+
+  .option-group--action-trigger {
+    background: #f4f4f4 !important;
+    border: none !important;
+    border-radius: 6px !important;
+    width: 100% !important;
+    padding: 10px !important;
+    margin-top: 12px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: #171a20 !important;
+  }
+
+  /* 9. Hide desktop footer spec details on mobile */
+  .aside-footer--container > div:first-child {
+    display: none !important;
+  }
+
+  /* 10. Hide Old Desktop Footers & Duplicate Floating Summary Panels */
+  .coin-overview-summary,
+  #LexiconGroup\:main\.BATTERY_AND_DRIVE .child-group--selected_option_details,
+  .aside-footer,
+  .aside-footer--container,
+  .footer-grid,
+  .footer-vehicle-option,
+  [data-id="aside-footer"],
+  .tds-footer-meta,
+  .overview-footer,
+  .summary-panel--aside-footer,
+  footer#footer,
+  .mobile-sticky-bottom-bar:not(.mobile-design-bottom-bar) {
+    display: none !important;
+  }
+
+  /* 11. Clean Fixed Mobile Sticky Bottom Bar */
+  .mobile-design-bottom-bar {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 72px !important;
+    background: #ffffff !important;
+    border-top: 1px solid #e2e2e2 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 0 16px !important;
+    z-index: 10000 !important;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05) !important;
+    box-sizing: border-box !important;
+  }
+
+  .mobile-bottom-bar--price-info {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+  .mobile-bottom-bar--price-row {
+    display: flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+  }
+  .mobile-bottom-bar--price {
+    font-size: 22px !important;
+    font-weight: 700 !important;
+    color: #171a20 !important;
+    letter-spacing: -0.5px !important;
+  }
+  .mobile-bottom-bar--chevron {
+    width: 16px !important;
+    height: 16px !important;
+    color: #171a20 !important;
+  }
+  .mobile-bottom-bar--subtext {
+    font-size: 12px !important;
+    color: #5c5d61 !important;
+    margin-top: 1px !important;
+  }
+  .mobile-bottom-bar--order-btn {
+    background-color: #3e6ae1 !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 4px !important;
+    padding: 12px 28px !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    white-space: nowrap !important;
+  }
+
+  /* 12. Hide Order with GPay & Order with Card buttons */
+  .choose-payment-type,
+  .google-pay-button-container,
+  .gpay-button-container,
+  .gpay-button,
+  .btn-creditcard,
+  .payment-actions,
+  button[title="Order with Card"],
+  #gpay-button-online-api-id {
+    display: none !important;
+  }
+
+  /* Exterior Section Card Styling */
+  #LexiconGroup\:main\.EXTERIOR {
+    padding: 0 16px !important;
+    margin-top: 16px !important;
+  }
+  #LexiconGroup\:main\.EXTERIOR .group-section--container {
+    background: #f4f4f4 !important;
+    border-radius: 12px !important;
+    padding: 24px 20px !important;
+    box-sizing: border-box !important;
+  }
+  #LexiconGroup\:main\.EXTERIOR .option-widget--container,
+  #LexiconGroup\:main\.EXTERIOR .group--child-container,
+  #LexiconGroup\:main\.EXTERIOR .group--detail-container {
+    background: transparent !important;
+  }
+  #LexiconGroup\:main\.EXTERIOR .coin-text--title,
+  #LexiconGroup\:main\.EXTERIOR h1.text-loader--content,
+  #LexiconGroup\:main\.EXTERIOR h1.text-loader--content span {
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    color: #171a20 !important;
+    margin: 0 0 18px 0 !important;
+    padding: 0 !important;
+    text-align: left !important;
+    letter-spacing: -0.2px !important;
+    background: transparent !important;
+  }
+  #LexiconGroup\:main\.EXTERIOR .group--child-container.root-group {
+    padding: 0 !important;
+  }
+  #LexiconGroup\:main\.EXTERIOR .group-PAINT {
+    margin-bottom: 28px !important;
+  }
+  #LexiconGroup\:main\.EXTERIOR .child-group--selected_option_details {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 0 4px 0 !important;
+    padding: 0 !important;
+  }
+  #LexiconGroup\:main\.EXTERIOR .child-group--selected_option--title {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+  #LexiconGroup\:main\.EXTERIOR .group-option--detail-container_name {
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    color: #171a20 !important;
+    text-align: left !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  #LexiconGroup\:main\.EXTERIOR .group-option--detail-container_price {
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    color: #171a20 !important;
+    text-align: right !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  /* Swatches: Concentric ring and centered swatches */
+  #LexiconGroup\:main\.EXTERIOR .child-group--swatch {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 8px !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    padding: 0 !important;
+    margin-top: 12px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Paint swatches: 44x44 container, fits all 6 swatches in a single row */
+  #LexiconGroup\:main\.EXTERIOR .group-PAINT .child-group--swatch .observer-placeholder {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+    max-width: 44px !important;
+    max-height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+  }
+  #LexiconGroup\:main\.EXTERIOR .group-PAINT .child-group--swatch .group--option--label {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    position: relative !important;
+    border-radius: 50% !important;
+    box-sizing: border-box !important;
+    border: 2px solid transparent !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    transition: border-color 0.2s ease !important;
+  }
+  /* Selected 44x44 outer ring */
+  #LexiconGroup\:main\.EXTERIOR .group-PAINT .child-group--swatch .group--option--label:has(.selected),
+  #LexiconGroup\:main\.EXTERIOR .group-PAINT .child-group--swatch input:checked + .group--option--label,
+  #LexiconGroup\:main\.EXTERIOR .group-PAINT .child-group--swatch [data-id-selected="true"] + .group--option--label,
+  #LexiconGroup\:main\.EXTERIOR .group-PAINT .child-group--swatch .group--option--selected + .group--option--label {
+    border: 2px solid #171a20 !important;
+    border-color: #171a20 !important;
+  }
+  /* Paint inner circular swatch: 34x34 perfectly centered */
+  #LexiconGroup\:main\.EXTERIOR .group-PAINT .child-group--swatch svg.group--options_asset,
+  #LexiconGroup\:main\.EXTERIOR .group-PAINT .child-group--swatch .group--options_asset {
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    min-height: 34px !important;
+    max-width: 34px !important;
+    max-height: 34px !important;
+    display: block !important;
+    border-radius: 50% !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    overflow: hidden !important;
+    pointer-events: none !important;
+    transform: none !important;
+    filter: none !important;
+  }
+  #LexiconGroup\:main\.EXTERIOR .group-PAINT .child-group--swatch svg image {
+    x: 0 !important;
+    y: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    preserveAspectRatio: xMidYMid slice !important;
+    clip-path: none !important;
+    filter: none !important;
+  }
+
+  /* Wheel swatches: 52x52 container with 40x40 wheel ball */
+  #LexiconGroup\:main\.EXTERIOR .group-WHEELS .child-group--swatch .observer-placeholder {
+    width: 52px !important;
+    height: 52px !important;
+    min-width: 52px !important;
+    min-height: 52px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  #LexiconGroup\:main\.EXTERIOR .group-WHEELS .child-group--swatch .group--option--label {
+    width: 52px !important;
+    height: 52px !important;
+    min-width: 52px !important;
+    min-height: 52px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    position: relative !important;
+    border-radius: 50% !important;
+    box-sizing: border-box !important;
+    border: 2px solid transparent !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    transition: border-color 0.2s ease !important;
+  }
+  #LexiconGroup\:main\.EXTERIOR .group-WHEELS .child-group--swatch .group--option--label:has(.selected),
+  #LexiconGroup\:main\.EXTERIOR .group-WHEELS .child-group--swatch input:checked + .group--option--label,
+  #LexiconGroup\:main\.EXTERIOR .group-WHEELS .child-group--swatch [data-id-selected="true"] + .group--option--label,
+  #LexiconGroup\:main\.EXTERIOR .group-WHEELS .child-group--swatch .group--option--selected + .group--option--label {
+    border: 2px solid #171a20 !important;
+    border-color: #171a20 !important;
+  }
+  #LexiconGroup\:main\.EXTERIOR .group-WHEELS .child-group--swatch svg.group--options_asset,
+  #LexiconGroup\:main\.EXTERIOR .group-WHEELS .child-group--swatch .group--options_asset {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    min-height: 40px !important;
+    max-width: 40px !important;
+    max-height: 40px !important;
+    display: block !important;
+    border-radius: 50% !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    overflow: hidden !important;
+    pointer-events: none !important;
+    transform: none !important;
+    filter: none !important;
+  }
+  #LexiconGroup\:main\.EXTERIOR .group-WHEELS .child-group--swatch svg image {
+    x: 0 !important;
+    y: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    preserveAspectRatio: xMidYMid slice !important;
+    clip-path: none !important;
+    filter: none !important;
+  }
+
+  #LexiconGroup\:main\.EXTERIOR .child-group--swatch .group--option--label::after {
+    display: none !important;
+  }
+
+  /* Interior Section Card Styling */
+  #LexiconGroup\:main\.PACKAGES,
+  #LexiconGroup\:main\.INTERIOR {
+    padding: 0 16px !important;
+    margin-top: 16px !important;
+  }
+  #LexiconGroup\:main\.PACKAGES .group-section--container,
+  #LexiconGroup\:main\.INTERIOR .group-section--container {
+    background: #f4f4f4 !important;
+    border-radius: 12px !important;
+    padding: 24px 20px !important;
+    box-sizing: border-box !important;
+  }
+  #LexiconGroup\:main\.PACKAGES .option-widget--container,
+  #LexiconGroup\:main\.PACKAGES .group--child-container,
+  #LexiconGroup\:main\.PACKAGES .group--detail-container,
+  #LexiconGroup\:main\.INTERIOR .option-widget--container,
+  #LexiconGroup\:main\.INTERIOR .group--child-container,
+  #LexiconGroup\:main\.INTERIOR .group--detail-container {
+    background: transparent !important;
+  }
+  #LexiconGroup\:main\.PACKAGES .coin-text--title,
+  #LexiconGroup\:main\.PACKAGES h1.text-loader--content,
+  #LexiconGroup\:main\.PACKAGES h1.text-loader--content span,
+  #LexiconGroup\:main\.INTERIOR .coin-text--title,
+  #LexiconGroup\:main\.INTERIOR h1.text-loader--content,
+  #LexiconGroup\:main\.INTERIOR h1.text-loader--content span {
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    color: #171a20 !important;
+    margin: 0 0 18px 0 !important;
+    padding: 0 !important;
+    text-align: left !important;
+    letter-spacing: -0.2px !important;
+    background: transparent !important;
+  }
+  #LexiconGroup\:main\.PACKAGES .group--child-container.root-group,
+  #LexiconGroup\:main\.INTERIOR .group--child-container.root-group {
+    padding: 0 !important;
+  }
+  #LexiconGroup\:main\.PACKAGES .child-group--selected_option_details,
+  #LexiconGroup\:main\.INTERIOR .child-group--selected_option_details {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  #LexiconGroup\:main\.PACKAGES .child-group--selected_option--title,
+  #LexiconGroup\:main\.INTERIOR .child-group--selected_option--title {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+  #LexiconGroup\:main\.PACKAGES .group-option--detail-container_name,
+  #LexiconGroup\:main\.INTERIOR .group-option--detail-container_name {
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    color: #171a20 !important;
+    text-align: left !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  #LexiconGroup\:main\.PACKAGES .group-option--detail-container_price,
+  #LexiconGroup\:main\.INTERIOR .group-option--detail-container_price {
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    color: #171a20 !important;
+    text-align: right !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  #LexiconGroup\:main\.PACKAGES .group-option--recommended,
+  #LexiconGroup\:main\.INTERIOR .group-option--recommended {
+    font-size: 14px !important;
+    color: #5c5d61 !important;
+    text-align: left !important;
+    margin-top: 2px !important;
+    margin-bottom: 0 !important;
+    line-height: 1.4 !important;
+  }
+  #LexiconGroup\:main\.PACKAGES .group-option--recommended span,
+  #LexiconGroup\:main\.INTERIOR .group-option--recommended span {
+    font-size: 14px !important;
+    color: #5c5d61 !important;
+  }
+
+  /* Interior Swatches: 54x54 concentric container, 40x40 circular ball */
+  #LexiconGroup\:main\.PACKAGES .child-group--swatch,
+  #LexiconGroup\:main\.INTERIOR .child-group--swatch {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 12px !important;
+    align-items: center !important;
+    padding: 0 !important;
+    margin-top: 14px !important;
+  }
+  #LexiconGroup\:main\.PACKAGES .child-group--swatch .observer-placeholder,
+  #LexiconGroup\:main\.INTERIOR .child-group--swatch .observer-placeholder {
+    width: 54px !important;
+    height: 54px !important;
+    min-width: 54px !important;
+    min-height: 54px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  #LexiconGroup\:main\.PACKAGES .child-group--swatch .group--option--label,
+  #LexiconGroup\:main\.INTERIOR .child-group--swatch .group--option--label {
+    width: 54px !important;
+    height: 54px !important;
+    min-width: 54px !important;
+    min-height: 54px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    position: relative !important;
+    border-radius: 50% !important;
+    box-sizing: border-box !important;
+    border: 2px solid transparent !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    transition: border-color 0.2s ease !important;
+  }
+  /* Selected 54x54 outer ring */
+  #LexiconGroup\:main\.PACKAGES .child-group--swatch .group--option--label:has(.selected),
+  #LexiconGroup\:main\.PACKAGES .child-group--swatch input:checked + .group--option--label,
+  #LexiconGroup\:main\.PACKAGES .child-group--swatch [data-id-selected="true"] + .group--option--label,
+  #LexiconGroup\:main\.PACKAGES .child-group--swatch .group--option--selected + .group--option--label,
+  #LexiconGroup\:main\.INTERIOR .child-group--swatch .group--option--label:has(.selected),
+  #LexiconGroup\:main\.INTERIOR .child-group--swatch input:checked + .group--option--label,
+  #LexiconGroup\:main\.INTERIOR .child-group--swatch [data-id-selected="true"] + .group--option--label,
+  #LexiconGroup\:main\.INTERIOR .child-group--swatch .group--option--selected + .group--option--label {
+    border: 2px solid #171a20 !important;
+    border-color: #171a20 !important;
+  }
+  /* 40x40 clean image inside */
+  #LexiconGroup\:main\.PACKAGES .child-group--swatch img.group--options_asset,
+  #LexiconGroup\:main\.PACKAGES .child-group--swatch .group--options_asset,
+  #LexiconGroup\:main\.INTERIOR .child-group--swatch img.group--options_asset,
+  #LexiconGroup\:main\.INTERIOR .child-group--swatch .group--options_asset {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    min-height: 40px !important;
+    max-width: 40px !important;
+    max-height: 40px !important;
+    display: block !important;
+    border-radius: 50% !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    object-fit: contain !important;
+    pointer-events: none !important;
+  }
+  #LexiconGroup\:main\.PACKAGES .child-group--swatch .group--option--label::after,
+  #LexiconGroup\:main\.INTERIOR .child-group--swatch .group--option--label::after {
+    display: none !important;
+  }
+
+  /* Bottom Order Summary, Terms, Due Today & Payment Section Mobile Alignment */
+  .tab-content,
+  [data-id="summary-breakdown"],
+  .collapse-container,
+  .review-page--due-today-container,
+  .coin-deposit-disclaimer,
+  .tds--vertical_padding-bottom,
+  .legal-disclaimer {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+  }
+
+  /* Reset nested children padding to avoid doubling */
+  .tab-content .pricing-container,
+  .tab-content .price-block,
+  .tds--vertical_padding-bottom .legal-disclaimer,
+  .legal-disclaimer .legal-disclaimer {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .finance-section--wrapper ul,
+  .finance-section--wrapper li {
+    padding: 0 !important;
+    margin: 0 !important;
+    list-style: none !important;
+  }
+
+  table.review-page--due-today-container {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  table.review-page--due-today-container th {
+    padding-left: 16px !important;
+    box-sizing: border-box !important;
+  }
+  table.review-page--due-today-container td {
+    padding-right: 16px !important;
+    box-sizing: border-box !important;
+  }
+  table.review-page--due-today-container td.coin-deposit-disclaimer {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* Hide Inline Payment Buttons on Mobile (Order with GPay & Order with Card) */
+  .error-scroll-container,
+  .payment-type--container,
+  .choose-payment-type,
+  .google-pay-button-container,
+  .btn-creditcard,
+  button[aria-label="Order with GPay"],
+  .payment-actions {
+    display: none !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+}
+

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function() {
+  document.addEventListener('click', function(e) {
+    var btnNoOp = e.target.closest('.charging-map-component__button-primary, .charging-map-component__button-tertiary, #charging-map-component a, .charging-map-component a, .tcl-site-footer a, [data-region="footer"] a, .tds-footer-meta a, .tds-footer-item a, footer a');
+    if (btnNoOp) {
+      e.preventDefault();
+      e.stopPropagation();
+      return;
+    }
+var a = e.target.closest('a');
+    if (!a) return;
+
+    var pathParts = window.location.pathname.split('/').filter(Boolean);
+    var isFile = window.location.pathname.endsWith('.html') || window.location.pathname.endsWith('.htm');
+    var depth = isFile ? Math.max(0, pathParts.length - 1) : pathParts.length;
+
+    var prefix = './';
+    if (depth === 1) prefix = '../';
+    else if (depth >= 2) prefix = '../../';
+
+    var homePath = prefix + 'index.html';
+
+    // Tesla Logo click -> ALWAYS go to Home Screen
+    if (a.closest('.tds-site-logo') || a.classList.contains('tds-site-logo-link') || 
+        a.id === 'tds-site-logo' || (a.getAttribute('aria-label') && (a.getAttribute('aria-label').toLowerCase().includes('logo') || a.getAttribute('aria-label').toLowerCase().includes('home')))) {
+      e.preventDefault();
+      e.stopPropagation();
+      window.location.href = homePath;
+      return;
+    }
+
+    var href = a.getAttribute('href');
+    if (!href) return;
+
+    if (href.indexOf('tesla.com') !== -1 || href.startsWith('/')) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      var lower = href.toLowerCase();
+      if (lower === 'https://www.tesla.com' || lower === 'https://www.tesla.com/' || lower === 'https://www.tesla.com/index.html' || lower === '/') {
+        window.location.href = homePath;
+      }
+      else if (lower.includes('modely/design')) window.location.href = prefix + 'modely/design/index.html';
+      else if (lower.includes('modely')) window.location.href = prefix + 'modely/index.html';
+      else if (lower.includes('model3/design')) window.location.href = prefix + 'model3/design/index.html';
+      else if (lower.includes('model3')) window.location.href = prefix + 'model3/index.html';
+      else if (lower.includes('cybertruck/design')) window.location.href = prefix + 'cybertruck/design/index.html';
+      else if (lower.includes('cybertruck')) window.location.href = prefix + 'cybertruck/index.html';
+      else if (lower.includes('inventory') || lower.includes('certified-pre-owned')) window.location.href = prefix + 'inventory/index.html';
+      else if (lower.includes('compare')) window.location.href = prefix + 'compare/index.html';
+      else if (lower.includes('solar')) window.location.href = prefix + 'solarpanels/index.html';
+      else if (lower.includes('powerwall')) window.location.href = prefix + 'powerwall/index.html';
+      else if (lower.includes('drive')) window.location.href = prefix + 'drive/index.html';
+      else if (lower.includes('fsd')) window.location.href = prefix + 'fsd/index.html';
+      else {
+        window.location.href = homePath;
+      }
+    }
+  }, true);
+})();
+</script>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>ns</title>
+<link rel="stylesheet" href="../../mobile.css">
+</head>
+<body>
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>

@@ -1,0 +1,78 @@
+/**
+* cyber-light-theme - payment form
+*/
+
+@font-face {
+  font-family: "Blender TSL Medium";
+  src: url("/css/fonts/Blender-TSL-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Blender TSL Bold";
+  src: url("/css/fonts/Blender-TSL-Bold.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+body {
+  --tds-border-radius: 0;
+  --tds-font-weight-regular: 500;
+  color: var(--tds-theme-foreground);
+  font-family: "Blender TSL Medium", serif;
+}
+
+.tds-form-input-text,
+.tds-form-input--default {
+  border-radius: var(--tds-border-radius);
+  font-size: var(--tds-font-size-30);
+}
+
+.tds-form-input:focus-within {
+  outline: 1px solid var(--tds-color-grey-60);
+  outline-offset: 0;
+}
+
+:is(h1, h2, h3, h4, .tds-text--h1, .tds-text--h2, .tds-text--h3, .tds-text--h4) {
+  font-family: "Blender TSL Bold", serif;
+}
+
+h1,
+.tds-text--h1 {
+  font-size: var(--tds-font-size-80);
+  line-height: var(--tds-line-height-80);
+}
+.tds-text--h1-alt {
+  font-size: var(--tds-font-size-75);
+  line-height: var(--tds-line-height-75);
+}
+h2,
+.tds-text--h2 {
+  font-size: var(--tds-font-size-70);
+  line-height: var(--tds-line-height-70);
+}
+h3,
+.tds-text--h3 {
+  font-size: var(--tds-font-size-60);
+  line-height: var(--tds-line-height-60);
+}
+h4,
+.tds-text--h4 {
+  font-size: var(--tds-font-size-50);
+  line-height: var(--tds-line-height-60);
+}
+h5,
+.tds-text--h5 {
+  font-size: var(--tds-font-size-40);
+  line-height: var(--tds-line-height-20);
+}
+h6,
+.tds-text--h6 {
+  font-size: var(--tds-font-size-30);
+  line-height: var(--tds-line-height-30);
+}
+.tds-text--caption-header {
+  font-size: var(--tds-font-size-20);
+  line-height: var(--tds-line-height-10);
+}
